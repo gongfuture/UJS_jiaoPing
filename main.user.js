@@ -16,11 +16,36 @@ function autoPj() {
     var rad_a,rad_b;
     rad_a = "pjf_F9066C26C99";
     rad_b = "89D1E05383001CAC1890";
-    for(var i=0x4;i<=0xC;i++)
+    for(var i=4;i<=12;i++)
     {
-        var m = i.toString()
-        m = m.toUpperCase()
-        document.getElementById(rad_a+m+rad_b).value = 100;
+        var m;
+        if (i == 10){
+            m = 'A'
+        }
+        else if (i == 11){
+            m = 'B'
+        }
+        else if (i == 12){
+            m = 'C'
+        }
+        else{
+            m = i.toString()
+        }
+
+        document.getElementById(rad_a+m+rad_b).setAttribute('value',100);
+        document.getElementById(rad_a+m+rad_b).onchange();
+        // const props = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+        // Object.defineProperty(HTMLInputElement.prototype, 'value', {
+        //     ...props,
+        //     set (v) {
+        //         let oldv = this.value;
+        //         props.set.call(this, v);
+        //         // 手动触发change事件
+        //         if (oldv !== v) {
+        //             document.getElementById(rad_a+m+rad_b).dispatchEvent(new CustomEvent('change'));
+        //         }
+        //     }
+        // });
     }
     //document.getElementById("Datagrid1:__ctl8:rb").checked = true;
     document.getElementById("py").value = '老师备课充分，授课重点突出。';
